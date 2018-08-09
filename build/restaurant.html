@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="./css/styles.css" rel="stylesheet" />
+    <title>Restaurant Reviews - Restaurant sheet</title>
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="author" content="Udacity, Smriti Gaba">
+    <meta name="description" content="Restaurant reviews webapp.">
+    <meta name="copyright" content="Udacity, All Rights Reserved © 2018">
+    <meta name="robots" content="noindex,nofollow">
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/icons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/icons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/icons/favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="mask-icon" href="./img/icons/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="apple-mobile-web-app-title" content="Restaurant reviews" />
+    <meta name="application-name" content="Restaurant reviews" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <script>
+        /*! loadJS: load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. (Based on http://goo.gl/REQGQ by Paul Irish). Licensed MIT */ ! function (e) {
+            var t = function (t, n) {
+                "use strict";
+                var o = e.document.getElementsByTagName("script")[0],
+                    r = e.document.createElement("script");
+                return r.src = t, r.async = !0, o.parentNode.insertBefore(r, o), n && "function" == typeof n && (r.onload = n), r
+            };
+            "undefined" != typeof module ? module.exports = t : e.loadJS = t
+        }("undefined" != typeof global ? global : this);
+    </script>
+</head>
+
+<body class="inside">
+    <!-- <a class="c-skip-link c-btn c-btn-over-dark" href="#restaurant-actions">
+        Jump to opening hours
+    </a> -->
+    <header>
+        <h1>
+            <a class="c-link-on-dark jsHomeLink" href="/" title="View Home page">
+                Restaurant Reviews
+            </a>
+            <span id="jsServiceWorkerStatus" class="c-sw-status"></span>
+        </h1>
+        <nav aria-label=Breadcrumb>
+            <ul class="breadcrumb" id="breadcrumb">
+            </ul>
+        </nav>
+    </header>
+    <main class="resto-page-container" id="maincontent">
+        <!-- TODO: Create a component LoadingScreen -->
+        <div class="loading-screen">
+            <p class="c-emphasis text-lg">Hang on a second</p>
+            <p class="c-emphasis text-md">while we load the restaurant information.</p>
+            <div class="c-loading-icon">
+                <div class="container">
+                    <div class="dot dot-1"></div>
+                    <div class="dot dot-2"></div>
+                    <div class="dot dot-3"></div>
+                </div>
+
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                    <defs>
+                        <filter id="goo">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -7" />
+                        </filter>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+        <section class="restaurant-details-container" id="restaurant-container">
+            <h2 id="restaurant-name">
+            </h2>
+            <p id="restaurant-cuisine">
+            </p>
+            <p id="restaurant-address">
+            </p>
+            <div class="restaurant-img-container">
+                <img alt="Featured image of the restaurant" id="restaurant-img" class="lazyload restaurant-img">
+                </img>
+            </div>
+            <div id="restaurant-actions">
+                <button class="c-btn btn-default btn-resto-hours open-hours-modal js-restaurant-hours-modal" title="View opening hours">
+                    View opening hours
+                </button>
+                <button class="c-btn btn-default open-reviews-modal js-reviews-modal" title="Read reviews">
+                    Read reviews
+                </button>
+                <button class="c-btn btn-default hide-gmaps" title="Hide the map">
+                    Hide Google Maps
+                </button>
+            </div>
+        </section>
+        <section class="c-modal restaurant-hours-container-modal js-restaurant-hours-modal" id="restaurant-hours" role="dialog">
+            <h2>
+                Opening hours
+            </h2>
+            <table id="restaurant-hours-table">
+            </table>
+            <button class="c-btn btn-default js-close-modal" title="Close the restaurant opening hours">
+                Close
+            </button>
+        </section>
+        <section class="c-modal reviews-container-modal js-reviews-modal" id="reviews-container" role="dialog">
+            <ul id="reviews-list">
+            </ul>
+            <div class="btn-close-modal js-close-modal">
+                <button class="c-btn btn-default" title="Close the reviews">
+                    Close
+                </button>
+            </div>
+        </section>
+        <a class="c-skip-link c-btn c-btn-over-dark" href="#footer">
+            Skip to footer
+        </a>
+        <section class="map-container">
+            <!-- TODO: Create a component LazyloadGoogleMap -->
+            <div class="map-buttons">
+                <button class="c-btn btn-default display-gmaps" title="View the map">
+                    View the restaurants on Google Maps here
+                </button>
+            </div>
+            <div class="map-offline-placeholder">
+                <h2 class="emphasis">Google Maps</h2>
+                <p class="emphasis">Connect to a Wifi or Mobile network to view the map.</p>
+            </div>
+            <div id="static-map"></div>
+            <div aria-hidden="true" role="application" id="map" class="the-map">
+            </div>
+        </section>
+    </main>
+    <!-- End main -->
+    <!-- Beginning footer -->
+    <footer id="footer">
+        Copyright (c) 2018
+        <a href="/" class="jsHomeLink" title="View Home page">
+            <strong>Restaurant Reviews</strong>
+        </a>
+        All Rights Reserved.
+    </footer>
+    <!-- End footer -->
+    <!-- Beginning scripts -->
+
+    <script charset="utf-8" src="./js/restaurant.bundle.min.js" type="application/javascript">
+    </script>
+    <script charset="utf-8" src="./js/io.min.js" type="application/javascript">
+    </script>
+    <!-- TODO: create a web component -->
+    <noscript>
+        <div class="c-no-script">
+            <div class="c-no-script-message">
+                Today,
+                <strong>JavaScript</strong> is
+                <a href="https://www.google.fr/search?q=javascript+is+awesome" title="Search Google to find out why!" target="_blank">awesome</a>. Enable it, please, and enjoy what we bring you with it :)
+            </div>
+        </div>
+    </noscript>
+</body>
+
+</html>
