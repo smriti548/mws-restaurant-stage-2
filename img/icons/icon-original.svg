@@ -1,0 +1,20 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="514" width="514" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <path stroke="#000" id="svg_9" d="m256.000044,0c-140.821501,0 -255.000044,91.423423 -255.000044,204.207783c0,64.510519 37.481929,121.988795 95.839015,159.398233c-8.303395,33.166224 -24.874187,69.900378 -56.90122,102.390262c0,0 74.757965,-5.962263 127.560679,-70.481542c3.039845,0.898373 6.186369,1.574565 9.254974,2.404105c-2.883848,-10.368557 -4.581622,-21.147282 -4.581622,-32.362245c0,-76.093392 70.31173,-135.6764 160.113046,-135.6764c64.500833,0 118.774326,30.856408 144.322922,76.384301c21.749325,-30.052661 34.392188,-64.861438 34.392188,-102.082636c0,-112.758439 -114.178525,-204.181862 -254.999921,-204.181862l-0.000018,0zm217.759532,365.57399c0,-62.560382 -63.329077,-113.314801 -141.49605,-113.314801c-78.124333,0 -141.48911,50.754419 -141.48911,113.314801c0,62.593943 63.364777,113.323075 141.48911,113.323075c17.302335,0 33.781205,-2.609316 49.102199,-7.159988c29.292101,35.818114 70.772675,39.111705 70.772675,39.111705c-17.763824,-18.033509 -26.940791,-38.410923 -31.557991,-56.828955c32.360899,-20.736143 53.179167,-52.628146 53.179167,-88.445838z" stroke-opacity="null" stroke-width="0" fill="#000000"/>
+  <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="'Palatino Linotype', 'Book Antiqua', Palatino, serif" font-size="196" id="svg_1" y="222" x="512" stroke-width="0" fill="#000000">RR</text>
+  <text font-weight="bold" font-style="italic" stroke="#000" transform="matrix(0.8656528592109679,0,0,0.8189239501953125,21.962637229822576,0.6026437282562256) " xml:space="preserve" text-anchor="start" font-family="'Palatino Linotype', 'Book Antiqua', Palatino, serif" font-size="250" id="svg_2" y="250.509831" x="88.670074" stroke-opacity="null" stroke-width="0" fill="#ffa500">RR</text>
+  <ellipse id="svg_5" cy="511.555556" cx="512" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+  <ellipse rx="0.5" id="svg_6" cy="191.555556" cx="728.333333" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+  <ellipse id="svg_7" cy="231.555556" cx="428.833333" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+  <ellipse id="svg_8" cy="365.555556" cx="326.833333" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+ </g>
+</svg>
