@@ -1,1 +1,940 @@
+/* CSS Document */
 
+:root {
+    --brand-color: #E35C84;
+    --text-brand-color: #2b2b2b;
+    /* default dark background color */
+    --bg-dark: #252831;
+    /* default light background color */
+    --bg-light: #eee;
+    /* default dark text color */
+    --text-dark: #333;
+    /* default light text color */
+    --text-light: #fff;
+    /* default link text color */
+    --link-color: #3397db;
+    /* default link text color over dark background */
+    --link-color-on-dark: #81c0ea;
+    /* default darker link text color */
+    --link-color-darker: #01447e;
+    /* default link text color on hover */
+    --link-color-hover: var(--text-dark);
+    /* default link text color on hover when background is dark */
+    --link-color-hover-on-dark: var(--brand-color);
+    /* top layer z-index value */
+    --top-layer: 100;
+    /* define below other layers! */
+    --modal-layer: 90;
+    /* end of layer definitions */
+    /* default font size */
+    --fs-default: 1em;
+    /* default line height */
+    --lh-default: 1em;
+    /* default top and bottom margin */
+    --default-y-mg: 4px;
+    /* default left and righ margin */
+    --default-x-mg: 4px;
+    /* default padding all around */
+    --default-pad: 16px;
+    /* default border radius */
+    --default-bd-radius: 0.25em;
+    /* a light shadow (to use over dark background) */
+    --shadow-light: 0 0 8px 3px rgba(255, 255, 255, 0.8);
+    /* a dark shadow (to use over light background) */
+    --shadow-dark: 0 0 8px 3px rgba(12, 12, 12, 0.8);
+    /* COMPONENTS var */
+    /* default light background color for a component */
+    --c-bg-light: #f3f3f3;
+    /* default light background color for a row component */
+    --c-bg-row-default: #fff;
+    /* default border color for a row component */
+    --c-bd-color-row-default: #949494;
+    /* default button width */
+    --c-btn-default-width: 144px;
+    /* default button width */
+    --c-btn-small-width: calc(var(--c-btn-default-width) / 3);
+    /* default button height */
+    --c-btn-min-height: 48px;
+    /* default font size for a button component */
+    --c-btn-fs-default: 1.2em;
+    /* default line height for a button component */
+    --c-btn-lh-default: 48px;
+    /* default row height */
+    --c-row-min-height: 64px;
+    /* z-index of the images */
+    --img-layer: 50;
+    /* z-index of the images placeholders */
+    --img-ph-layer: 51;
+    /* Service worker ok color */
+    --c-sw-status-ok: #00ff00;
+    /* Service worker nok color */
+    --c-sw-status-nok: #ff0000;
+}
+
+html,
+body {
+    height: 100vh;
+}
+
+body,
+td,
+th,
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: var(--fs-default);
+    color: var(--text-dark);
+}
+
+p {
+    /* decrese default margin from webkit */
+    -webkit-margin-before: 0.25rem;
+    -webkit-margin-after: 0.25rem;
+}
+
+body {
+    background-color: var(--bg-light);
+    margin: 0;
+    position: relative;
+}
+
+ul,
+li {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text-dark);
+    list-style: none;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    -webkit-padding-start: 0;
+}
+
+a {
+    color: var(--brand-color);
+    text-decoration: none;
+    border-radius: var(--default-bd-radius);
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+a img {
+    border: none 0 #fff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: calc(var(--lh-default) * 1.5);
+    /*  RESET USER AGENT STYLES on hX elements */
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+}
+
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+    max-width: 100%;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    background-color: var(--bg-light);
+}
+
+footer {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    text-align: center;
+    text-transform: uppercase;
+    padding: var(--default-pad);
+}
+
+/* Add focus box shadow for any element focused over DARK background  */
+
+:focus {
+    outline: 0;
+    box-shadow: var(--shadow-light);
+}
+
+.debug {
+    border: 1px solid red;
+}
+
+/* ====================== Typography classes ====================== */
+
+.text-lg {
+    font-size: calc(var(--fs-default) * 1.25);
+}
+
+.text-md {
+    font-size: calc(var(--fs-default) * 1.125);
+}
+
+/* ====================== Components ====================== */
+
+.c-sw-status {
+    display: inline-block;
+}
+
+.c-sw-status>span {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.c-sw-ok {
+    background-color: var(--c-sw-status-ok);
+}
+
+.c-sw-nok {
+    background-color: var(--c-sw-status-nok);
+}
+
+
+
+/*.c-loading-icon .container {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+    animation: rotate-move 2s ease-in-out infinite;
+}
+
+.c-loading-icon .dot {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #000;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.c-loading-icon .dot-3 {
+    background-color: #f74d75;
+    animation: dot-3-move 2s ease infinite, index 6s ease infinite;
+}
+
+.c-loading-icon .dot-2 {
+    background-color: #10beae;
+    animation: dot-2-move 2s ease infinite, index 6s -4s ease infinite;
+}
+
+.c-loading-icon .dot-1 {
+    background-color: #ffe386;
+    animation: dot-1-move 2s ease infinite, index 6s -2s ease infinite;
+}
+
+@keyframes dot-3-move {
+    20% {
+        transform: scale(1);
+    }
+    45% {
+        transform: translateY(-18px) scale(0.45);
+    }
+    60% {
+        transform: translateY(-90px) scale(0.45);
+    }
+    80% {
+        transform: translateY(-90px) scale(0.45);
+    }
+    100% {
+        transform: translateY(0px) scale(1);
+    }
+}
+
+@keyframes dot-2-move {
+    20% {
+        transform: scale(1);
+    }
+    45% {
+        transform: translate(-16px, 12px) scale(0.45);
+    }
+    60% {
+        transform: translate(-80px, 60px) scale(0.45);
+    }
+    80% {
+        transform: translate(-80px, 60px) scale(0.45);
+    }
+    100% {
+        transform: translateY(0px) scale(1);
+    }
+}
+
+@keyframes dot-1-move {
+    20% {
+        transform: scale(1);
+    }
+    45% {
+        transform: translate(16px, 12px) scale(0.45);
+    }
+    60% {
+        transform: translate(80px, 60px) scale(0.45);
+    }
+    80% {
+        transform: translate(80px, 60px) scale(0.45);
+    }
+    100% {
+        transform: translateY(0px) scale(1);
+    }
+}
+
+@keyframes rotate-move {
+    55% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    80% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes index {
+    0%,
+    100% {
+        z-index: 3;
+    }
+    33.3% {
+        z-index: 2;
+    }
+    66.6% {
+        z-index: 1;
+    }
+}
+
+.c-emphasis {
+    text-align: center;
+}
+
+h2.c-emphasis {
+    font-size: calc(var(--fs-default) * 2);
+    font-weight: bold;
+}
+
+p.c-emphasis {
+    font-style: italic;
+}*/
+
+.c-btn {
+    background-color: var(--brand-color);
+    color: var(--text-brand-color);
+    border: 0;
+    width: 144px;
+    min-width: var(--c-btn-default-width);
+    max-width: 80%;
+    margin: var(--default-y-mg) 0;
+    margin-right: calc(var(--default-x-mg) * 2);
+    display: inline-block;
+    border-radius: var(--default-bd-radius);
+    font-size: var(--fs-default);
+    padding: var(--default-pad);
+    cursor: pointer;
+}
+
+.c-btn:focus {
+    outline: 0;
+    box-shadow: var(--shadow-dark);
+}
+
+.c-btn-over-dark:focus {
+    outline: 0;
+    box-shadow: var(--shadow-light);
+}
+
+@media screen and (max-width: 399px) {
+    .c-btn {
+        padding: calc(var(--default-pad) / 2);
+    }
+}
+
+.btn-default:hover,
+.btn-default a:hover,
+.btn-default:focus,
+.btn-default a:focus {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    border: 1px solid var(--brand-color);
+    text-decoration: underline;
+}
+
+.btn-small {
+    width: 48px;
+    min-width: var(--c-btn-small-width);
+    text-align: center;
+}
+
+.row-default {
+    height: var(--c-row-min-height);
+    min-height: var(--c-row-min-height);
+    background-color: var(--c-bg-row-default);
+    padding: var(--default-pad) 0 var(--default-pad) var(--default-pad);
+    border-bottom: 1px solid var(--c-bd-color-row-default);
+}
+
+@media screen and (min-width: 650px) {
+    .row-default {
+        padding: calc(var(--default-pad) / 2) 0 calc(var(--default-pad) / 2) calc(var(--default-pad) / 2);
+    }
+}
+
+.row-default:first-child {
+    border-top: 1px solid var(--c-bd-color-row-default);
+}
+
+.c-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-light);
+    text-align: center;
+    z-index: var(--modal-layer);
+}
+
+.btn-close-modal {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: var(--bg-dark);
+    border-top: 1px solid var(--c-bd-color-row-default);
+    width: 100%;
+}
+
+.c-link-on-dark a:hover,
+.c-link-on-dark a:focus {
+    color: var(--link-color-hover-on-dark);
+    text-decoration: underline;
+}
+
+.c-skip-link {
+    position: absolute;
+    top: -9999px;
+    left: 0;
+    z-index: var(--top-layer);
+    margin: var(--default-y-mg) var(--default-x-mg);
+}
+
+.c-skip-link a,
+.c-skip-link a:focus {
+    color: var(--text-dark);
+}
+
+.c-skip-link:focus {
+    top: 0;
+}
+
+.c-img-ph {
+    z-index: var(--img-ph-layer);
+}
+
+.c-img-ph+img {
+    z-index: var(--img-layer);
+}
+
+.c-no-script {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: var(--bg-light);
+}
+
+.c-no-script-message {
+    position: absolute;
+    top: 50%;
+    font-size: 30px;
+    font-weight: 300;
+    padding: 0 10vw;
+    text-align: center;
+}
+
+/* ====================== Header ====================== */
+
+header {
+    background-color: var(--bg-dark);
+}
+
+header h1 {
+    line-height: initial;
+    text-align: center;
+    margin: 0;
+    padding: var(--default-pad);
+}
+
+@media screen and (min-width: 650px) {
+    header h1 {
+        padding: calc(var(--default-pad) * 1.25);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    header h1 {
+        padding: calc(var(--default-pad) * 1.5);
+    }
+}
+
+/* ====================== Navigation ====================== */
+
+nav {
+    text-align: center;
+}
+
+nav h1 {
+    margin: auto;
+}
+
+nav h1 a {
+    color: var(--text-light);
+    font-weight: 200;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+}
+
+/* ====================== Loading screen ====================== */
+
+.loading-screen p {
+    padding: 0 var(--default-pad);
+}
+
+.loading-screen .c-loading-icon {
+    position: relative;
+}
+
+.loading-screen .c-loading-icon .container {
+    width: inherit;
+    height: inherit;
+    left: 47%;
+}
+
+/* ====================== Map ====================== */
+
+.map-container {
+    position: relative;
+}
+
+.map-buttons {
+    text-align: center;
+}
+
+.display-gmaps {
+    display: none;
+    width: 200px;
+}
+
+@media screen and (min-width: 650px) {
+    .display-gmaps {
+        position: absolute;
+        top: 40%;
+        left: 40%;
+    }
+}
+
+.hide-gmaps {
+    display: none;
+}
+
+#static-map,
+#static-map img,
+#map {
+    width: 100%;
+    background-color: transparent;
+    float: left;
+}
+
+#static-map,
+#static-map img {
+    height: initial;
+}
+
+#map {
+    height: 40vh;
+    display: none;
+}
+
+/*#maincontent > section.map-container > .the-map {
+    display: none;
+}*/
+
+.map-offline-placeholder {
+    display: none;
+    z-index: 0;
+    margin: 5rem;
+}
+
+.map-offline-placeholder>* {
+    text-align: center;
+    /* top: 30vmin; */
+}
+
+/* ====================== Restaurant Filtering ====================== */
+
+.filter-options {
+    text-align: center;
+    clear: both;
+}
+
+#filters-modal select {
+    display: block;
+    margin: var(--default-y-mg) auto;
+    padding: calc(var(--default-pad));
+}
+
+select option {
+    background-color: var(--bg-dark);
+    color: var(--brand-color);
+}
+
+select option selected,
+select option:checked {
+    background-color: var(--brand-color);
+    color: var(-var(--text-dark));
+}
+
+/* ====================== Restaurant Listing ====================== */
+
+.no-restaurant-msg {
+    display: none;
+    text-align: center;
+}
+
+@media screen and (min-width: 400px) {
+    .view-list {
+        display: none;
+    }
+}
+
+.restaurants-list-container {
+    width: 100%;
+}
+
+.restaurant-container {
+    display: flex;
+    align-items: center;
+}
+
+.restaurant-img {
+    max-height: var(--c-row-min-height);
+}
+
+.descriptions {
+    padding: 0 1rem;
+    width: 100%;
+}
+
+.address {
+    display: none;
+}
+
+.restaurant-container .more-container {
+    margin-left: auto;
+}
+
+@media screen and (max-width: 399px) {
+    .restaurant-container h2 {
+        font-size: var(--fs-default);
+    }
+}
+
+@media screen and (min-width: 400px) {
+    .row-default {
+        min-height: calc(var(--c-row-min-height) * 1.2);
+    }
+    .restaurant-container {
+        align-items: center;
+    }
+    .restaurant-img-container {
+        flex: 2;
+        align-self: baseline;
+        height: 100%;
+    }
+    .restaurant-img {
+        max-height: 100%;
+    }
+    .descriptions {
+        flex: 4;
+    }
+    .restaurant-container h2 {
+        font-size: larger;
+    }
+    .more-container {
+        flex: 1;
+    }
+    .more-container a {
+        float: right;
+    }
+}
+
+@media screen and (min-width: 650px) {
+    .index-page-container .map-container {
+        height: 40vh;
+    }
+    .restaurants-list-container ul {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+    .restaurant-container {
+        border: 1px solid var(--c-bd-color-row-default);
+        border-radius: var(--default-bd-radius);
+        margin-bottom: 16px;
+    }
+    .restaurant-container h2 {
+        font-size: initial;
+    }
+}
+
+@media screen and (min-width: 850px) {
+    .restaurants-list-container ul {
+        margin: 0 10vw;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .restaurants-list-container ul {
+        grid-template-columns: auto auto auto;
+        margin: 0 10vw;
+    }
+}
+
+/* ====================== Breadcrumb ====================== */
+
+.breadcrumb {
+    padding: 10px 40px 16px;
+    list-style: none;
+    background-color: var(--bg-dark);
+    font-size: var(--fs-default);
+    margin: 0;
+}
+
+/* Display list items side by side */
+
+.breadcrumb li {
+    display: inline;
+    color: var(--text-light);
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+
+.breadcrumb li+li:before {
+    padding: 8px;
+    color: var(--text-light);
+    content: "/\00a0";
+}
+
+/* Add a color to all links inside the list */
+
+.breadcrumb li a {
+    color: var(--link-color-on-dark);
+    text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+
+.breadcrumb li a:hover {
+    color: var(--link-color-hover-on-dark);
+    text-decoration: underline;
+}
+
+/* ====================== Restaurant Details ====================== */
+
+.resto-page-container #map {
+    height: 60vh;
+}
+
+.resto-page-container h2,
+.resto-page-container p {
+    text-align: center;
+}
+
+.restaurant-details-container,
+.restaurant-hours-container-modal {
+    text-align: center;
+}
+
+.resto-page-container .restaurant-img-container {
+    width: 100%;
+    height: initial;
+}
+
+@media screen and (min-width: 400px) {
+    .resto-page-container .restaurant-img-container {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .resto-page-container .restaurant-img {
+        height: initial;
+    }
+    .restaurant-hours-container-modal table {
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 650px) {
+    .resto-page-container {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto auto auto;
+    }
+    .resto-page-container .map-container {
+        grid-row: 1 / -1;
+        grid-column: 6 / -1;
+    }
+    .restaurant-details-container {
+        grid-column: 1 / 6;
+    }
+    .map-container>#map {
+        height: 100%;
+    }
+}
+
+.resto-page-container .restaurant-img {
+    max-width: 100%;
+    max-height: initial;
+}
+
+.reviews-container-modal,
+.restaurant-hours-container-modal {
+    display: none;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 500px) {
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    td {
+        position: relative;
+        text-align: center;
+    }
+    table>tr {
+        margin: var(--default-y-mg) auto;
+    }
+}
+
+.restaurant-hours-container-modal td:nth-child(odd) {
+    font-weight: bold;
+}
+
+.reviews-container-modal {
+    line-height: initial;
+    overflow-y: scroll;
+}
+
+.reviews-container-modal h4 {
+    font-size: var(--fs-default);
+    border-radius: var(--default-bd-radius);
+}
+
+.reviews-container-modal h4:focus {
+    box-shadow: var(--shadow-dark);
+}
+
+@media screen and (min-width: 650px) {
+    .reviews-container-modal ul {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .reviews-container-modal ul {
+        grid-template-columns: auto auto auto;
+    }
+}
+
+.reviews-container-modal ul {
+    padding-bottom: calc(var(--c-btn-min-height) * 1.5);
+}
+
+.reviews-container-modal {
+    font-size: calc(var(--fs-default) * 1.2);
+}
+
+.reviews-container-modal li {
+    margin: calc(var(--default-y-mg) * 2) calc(var(--default-x-mg) * 2) 0 calc(var(--default-x-mg) * 2);
+    background-color: var(--c-bg-row-default);
+    border: 1px solid var(--c-bd-color-row-default);
+    padding: calc(var(--default-pad) * 2);
+    border-radius: var(--default-bd-radius);
+}
+
+@media screen and (min-width: 650px) {
+    .reviews-container-modal li {
+        margin-top: calc(var(--default-y-mg) * 4);
+    }
+}
+
+.reviews-container-modal .review-date {
+    width: 100%;
+    text-align: right;
+    font-style: italic;
+}
+
+.reviews-container-modal .review-author,
+.reviews-container-modal .review-rating {
+    display: inline-block;
+    width: 50%;
+    font-weight: bold;
+}
+
+.reviews-container-modal .review-comments {
+    width: 100%;
+    padding: var(--default-pad) 0;
+    text-align: justify;
+    font-size: smaller;
+}
+
+@media screen and (min-width: 400px) {
+    .reviews-container-modal .review-author,
+    .reviews-container-modal .review-rating {
+        padding-top: var(--default-pad);
+    }
+    .reviews-container-modal .review-comments {
+        font-size: inherit;
+        padding: 0;
+    }
+}
